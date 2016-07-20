@@ -1,4 +1,4 @@
-int numPelotitas = 500;
+int numPelotitas = 1024;
 PelotitaIFAE[] pelotitas;
 
 void setup(){
