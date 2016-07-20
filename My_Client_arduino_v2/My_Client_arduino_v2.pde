@@ -10,6 +10,7 @@ int green = #00FF00;
 
 UDP udp2;
 Gif loopinGif;
+String LOCAL_HOST= "172.16.7.168";
 byte[] bitA;
 PImage lastFrame;
 PImage open,close,nosignal;
@@ -105,7 +106,7 @@ public void OPEN(int theValue) {
   
    String openDoor = new String("openDoor");
    
-  udp2.send(openDoor,"localhost",2000);
+  udp2.send(openDoor,LOCAL_HOST,2000);
       
 }
 
@@ -114,7 +115,7 @@ public void VIEW(int theValue) {
   
    String view = new String("View");
    
-  udp2.send(view,"localhost",2000);
+  udp2.send(view,LOCAL_HOST,2000);
   
   //ctr = false;
   //image(loopinGif, 10, height - loopinGif.height );
