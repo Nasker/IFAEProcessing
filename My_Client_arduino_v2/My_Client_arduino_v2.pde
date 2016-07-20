@@ -8,9 +8,10 @@ import gifAnimation.*;
 int green = #00FF00;
 //UDP udp3;
 
+String HOST_IP = "172.16.7.136";
+
 UDP udp2;
 Gif loopinGif;
-String LOCAL_HOST= "172.16.7.168";
 byte[] bitA;
 PImage lastFrame;
 PImage open,close,nosignal;
@@ -27,8 +28,8 @@ void setup() {
 
   
   nosignal = loadImage("nosignal.png");
-  loopinGif = new Gif(this,"giphy.gif");
-  loopinGif.loop();
+ // loopinGif = new Gif(this,"giphy.gif");
+ // loopinGif.loop();
 
   
 
@@ -52,7 +53,7 @@ void draw() {
  
   if(lastFrame==null){
   //background(0);
-  image(loopinGif, 10, height - loopinGif.height );
+ // image(loopinGif, 10, height - loopinGif.height );
   
   image(nosignal,10,180,width/4,height/4);
   }else image(lastFrame,0,0);
@@ -106,7 +107,7 @@ public void OPEN(int theValue) {
   
    String openDoor = new String("openDoor");
    
-  udp2.send(openDoor,LOCAL_HOST,2000);
+  udp2.send(openDoor,HOST_IP,2000);
       
 }
 
@@ -115,7 +116,7 @@ public void VIEW(int theValue) {
   
    String view = new String("View");
    
-  udp2.send(view,LOCAL_HOST,2000);
+  udp2.send(view,HOST_IP,2000);
   
   //ctr = false;
   //image(loopinGif, 10, height - loopinGif.height );
