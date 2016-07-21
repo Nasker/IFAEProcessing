@@ -13,6 +13,8 @@ int ring, x=0;
 int sms=1;
 int open = 1;
 StringList connectedDevicesIp;
+StringList ipOpenDoorPoints;
+StringList ipOpenDoor;
 void setup() {
   size(320, 240);
   connectedDevicesIp = new StringList();
@@ -33,10 +35,10 @@ void captureEvent( Capture c ) {
 }
 
 void draw() {
-  //if (port.available()>0) {
-  //  ring = port.read();
-  //  println(ring);
-  //}
+  if (port.available()>0) {
+    ring = port.read();
+ 
+  }
   image(cam, 0, 0);
   if (sms==0) {
     sms = 1;
@@ -96,10 +98,13 @@ void receive (byte[] mensaje, String ip, int port) {
     /*
     }*/
  // } 
+ if(ring==1){
   if (message.equals("openDoor") == true) {
     sms = 0;
+    ring=0;
+    //ipOpenDoorPoints(ip,1); 
   }
-  //}
+ }
 }
 
 int findIndexOfElementInList(StringList list, String element){
@@ -115,3 +120,12 @@ int findIndexOfElementInList(StringList list, String element){
   return index;
 
 }
+
+/*public void ipOpenDoorPoints(String ip, int point){
+  
+  int indexPoint = findIndexOfElementInList(connectedDevicesIp,ip);
+  if(indexPoint == -1)ipOpenDoor.append(ip); ipOpenDoorPoints.add(point);
+    else ipOpenDoorPoints.add(a)
+  
+
+}*/

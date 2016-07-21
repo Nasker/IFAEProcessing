@@ -8,7 +8,7 @@ import gifAnimation.*;
 int green = #00FF00;
 //UDP udp3;
 
-String HOST_IP = "172.16.7.136";
+String HOST_IP = "localhost";
 
 UDP udp2;
 Gif loopinGif;
@@ -28,8 +28,8 @@ void setup() {
 
   
   nosignal = loadImage("nosignal.png");
- // loopinGif = new Gif(this,"giphy.gif");
- // loopinGif.loop();
+  loopinGif = new Gif(this,"giphy.gif");
+  loopinGif.loop();
 
   
 
@@ -52,8 +52,8 @@ void setup() {
 void draw() {
  
   if(lastFrame==null){
-  //background(0);
- // image(loopinGif, 10, height - loopinGif.height );
+  background(0);
+  image(loopinGif, 10, height - loopinGif.height );
   
   image(nosignal,10,180,width/4,height/4);
   }else image(lastFrame,0,0);
