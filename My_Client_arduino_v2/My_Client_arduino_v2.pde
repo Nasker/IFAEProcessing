@@ -19,7 +19,7 @@ PImage [] animation;
 boolean ctr=true;
 ControlP5 cp5;
 void setup() {
-  size(320, 240);
+  size(1280, 720);
   frameRate(60);
   // create a UDP connection
   udp2 = new UDP(this, 3000);
@@ -28,8 +28,8 @@ void setup() {
 
   
   nosignal = loadImage("nosignal.png");
-  loopinGif = new Gif(this,"giphy.gif");
-  loopinGif.loop();
+ loopinGif = new Gif(this,"giphy.gif");
+ loopinGif.loop();
 
   
 
@@ -49,17 +49,15 @@ void setup() {
      ;
 }
 
-void draw() {
+void draw(){
  
   if(lastFrame==null){
-  background(0);
-  image(loopinGif, 10, height - loopinGif.height );
-  
-  image(nosignal,10,180,width/4,height/4);
+    background(0);
+    image(loopinGif, 10, height - loopinGif.height );
+    image(nosignal,10,180,width/4,height/4);
+
   }else image(lastFrame,0,0);
-    
-    
-  }
+}
 
 
 void receive( byte[] data, String ip, int port ) {  // <-- extended handler
