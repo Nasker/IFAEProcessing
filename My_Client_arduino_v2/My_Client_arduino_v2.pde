@@ -8,7 +8,7 @@ import gifAnimation.*;
 int green = #00FF00;
 //UDP udp3;
 
-String HOST_IP = "localhost";
+String HOST_IP = "172.16.17.44";
 
 UDP udp2;
 Gif loopinGif;
